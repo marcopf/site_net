@@ -1,5 +1,6 @@
 var g = new Dracula.Graph();
 let toAdd = []
+let erase = false
 
 //sistema solare
 
@@ -48,39 +49,39 @@ redraw = function(toAdd) {
 
     //sistema solare
 
-    g.addEdge("Sole", "Terra");
-    g.addEdge("Sole", "Marte");
-    g.addEdge("Sole", "Venere");
-    g.addEdge("Sole", "Giove");
-    g.addEdge("Sole", "Mercurio");
-    g.addEdge("Sole", "Nettuno");
-    g.addEdge("Sole", "Saturno");
-    g.addEdge("Sole", "Urano");
-    g.addEdge("Sole", "Plutone");
+    if (!erase) {
 
-    //lune di giove
+        g.addEdge("Sole", "Terra");
+        g.addEdge("Sole", "Marte");
+        g.addEdge("Sole", "Venere");
+        g.addEdge("Sole", "Giove");
+        g.addEdge("Sole", "Mercurio");
+        g.addEdge("Sole", "Nettuno");
+        g.addEdge("Sole", "Saturno");
+        g.addEdge("Sole", "Urano");
+        g.addEdge("Sole", "Plutone");
 
-    g.addEdge("Giove", "Europa");
-    g.addEdge("Giove", "Gianimede");
-    g.addEdge("Giove", "Io");
-    g.addEdge("Giove", "Callisto");
+        //lune di giove
 
-    //lune di nettuno
+        g.addEdge("Giove", "Europa");
+        g.addEdge("Giove", "Gianimede");
+        g.addEdge("Giove", "Io");
+        g.addEdge("Giove", "Callisto");
 
-    g.addEdge("Nettuno", "Tritone");
-    g.addEdge("Nettuno", "Talassa");
-    g.addEdge("Nettuno", "Ippocampo");
-    g.addEdge("Nettuno", "Nereide")
+        //lune di nettuno
 
-    //lune di marte
+        g.addEdge("Nettuno", "Tritone");
+        g.addEdge("Nettuno", "Talassa");
+        g.addEdge("Nettuno", "Ippocampo");
+        g.addEdge("Nettuno", "Nereide")
 
-    g.addEdge("Marte", "Deimos")
-    g.addEdge("Marte", "Fobos")
+        //lune di marte
 
+        g.addEdge("Marte", "Deimos")
+        g.addEdge("Marte", "Fobos")
+    }
     for (let i = 0; i < toAdd.length; i++) {
-        if (toAdd[i][0] && toAdd[i][1]) {
-            g.addEdge(toAdd[i][0], toAdd[i][1])
-        }
+        g.addEdge(toAdd[i][0], toAdd[i][1])
     }
 
     var layout = new Dracula.Layout.Spring(g);
@@ -93,12 +94,16 @@ redraw = function(toAdd) {
 const socket = io('ws://localhost:5050');
 
 socket.on('testValue', chartData => {
-    toAdd.push([chartData.value, chartData.label])
-    console.log(toAdd)
-    redraw(toAdd);
+    if (chartData.label && chartData.value) {
+        toAdd.push([chartData.value, chartData.label])
+        console.log(toAdd)
+        redraw(toAdd);
+    } else {
+        alert('insert data first')
+    }
 });
 
-document.querySelector('button').onclick = () => {
+document.querySelector('.update').onclick = () => {
     const data = document.querySelector('.chartData').value;
     const text = document.querySelector('.chartLabel').value;
     let chartData = {
@@ -107,7 +112,11 @@ document.querySelector('button').onclick = () => {
     };
     socket.emit('testValue', chartData)
 }
-document.querySelector('.value').innerText = 'root node link'
-document.querySelector('.lbl').innerText = 'new node value'
-document.querySelector('.remove').remove()
+
+document.querySelector('.remove').innerText = 'Reset'
+document.querySelector('.remove').onclick = () => {
+    document.querySelector('.chart').innerHTML = ""
+    erase = true
+    toAdd = []
+}
 document.querySelector('canvas').remove()

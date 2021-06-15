@@ -234,12 +234,12 @@
 }
 
 h1 {
-    font-weight: 800;
-    text-decoration: underline;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
 }
 
 h2 {
-    text-decoration: underline;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .mainBlock {
@@ -250,6 +250,8 @@ h2 {
 }
 
 .sideBlock {
+    display: flex;
+    flex-direction: column;
     transform: translateX(200px);
     float: left;
 }
@@ -258,7 +260,6 @@ input {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
-    display: inline-block;
     border: 1px solid #ccc;
     border-radius: 6px;
     box-sizing: border-box;
@@ -270,8 +271,6 @@ input:hover {
 
 .remove {
     background-color: #e63946;
-    float: left;
-    transform: translateX(450px);
 }
 
 .remove:hover {
@@ -280,6 +279,7 @@ input:hover {
 
 button {
     background-color: #4CAF50;
+    width: 49%;
     border: none;
     border-radius: 6px;
     color: white;
@@ -287,7 +287,6 @@ button {
     text-align: center;
     text-decoration: none;
     font-size: 16px;
-    float: right;
 }
 
 button:hover {

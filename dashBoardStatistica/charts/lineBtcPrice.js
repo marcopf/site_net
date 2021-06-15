@@ -51,14 +51,18 @@ function removeData(myChart) {
 const socket = io('ws://localhost:5050');
 
 socket.on('testValue', chartData => {
-    addData(myChart, chartData.label, chartData.value);
+    if (chartData.label && chartData.value) {
+        addData(myChart, chartData.label, chartData.value);
+    } else {
+        alert('insert data first')
+    }
 });
 
 document.querySelector('.remove').onclick = () => {
     removeData(myChart);
 }
 
-document.querySelector('button').onclick = () => {
+document.querySelector('.update').onclick = () => {
     const data = document.querySelector('.chartData').value;
     const text = document.querySelector('.chartLabel').value;
     let chartData = {
