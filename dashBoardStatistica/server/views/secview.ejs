@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://cdn.socket.io/socket.io-3.0.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.1/chart.min.js" integrity="sha512-tOcHADT+YGCQqH7YO99uJdko6L8Qk5oudLN6sCeI4BQnpENq6riR6x9Im+SGzhXpgooKBRkPsget4EOoH5jNCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css">
+    <title>Statistic</title>
+</head>
+
+<body>
+    <section class="mainBlock">
+        <ul class="sidebar-menu">
+            <li class="sidebar-header">Menu laterale</li>
+            <li>
+                <a href="/">
+                    <i class="fa fa-line-chart"></i> <span></span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-bar-chart"></i> <span></span> <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="sidebar-submenu">
+                    <li><a href="/popolazionePerProvinciaq"><i class="fa fa-circle-o"></i><span></span></a></li>
+                    <li><a href="/popolazionePerComuneq"><i class="fa fa-circle-o"></i><span></span></a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-pie-chart"></i> <span></span> <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="sidebar-submenu">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-circle-thin"></i> <span></span> <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li><a href="/covidPerRegioneq"><i class="fa fa-dot-circle-o"></i><span></span></a></li>
+                            <li><a href="/covidPerComuneq"><i class="fa fa-dot-circle-o"></i><span></span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="/sistemaSolareq">
+                    <i class="fa fa-link"></i> <span></span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <div class="sideBlock">
+        <h1></h1>
+        <div class="chart">
+        </div>
+        <canvas id="myChart" height="270" width="600"></canvas>
+        <h2>Update Value</h2>
+        <label for="data" class="value">value</label>
+        <input id="data" placeholder="" class="chartData">
+        <label for="label" class="lbl">label</label>
+        <input id="label" placeholder="" class="chartLabel">
+        <button>Update</button>
+        <button class="remove">Remove Last Item</button>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/graphdracula/1.2.1/dracula.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="/javascript"></script>
+    <script src="/<%= text.id.slice(0, text.id.length - 1) %> "></script>
+    <script src="/script"></script>
+    <script>
+        $.sidebarMenu($('.sidebar-menu'))
+    </script>
+</body>
+
+</html>
