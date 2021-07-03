@@ -1,0 +1,51 @@
+.main-container {
+    background-color: white;
+}
+
+div {
+    border-radius: 9px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 4px 9px black;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    height: 100%;
+}
+
+.title-container {
+    display: block;
+    background-color: teal;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.main-container {
+    padding: 50px;
+    background-color: #264653;
+}
+
+.sub-container {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 30px;
+    padding-left: 30px;
+    margin-top: 30px;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sub-container:hover {
+    transform: scale(1.1);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
