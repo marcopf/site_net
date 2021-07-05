@@ -1,18 +1,18 @@
-let colors = ['#2a9d8f', '#e9c46a', '#f4a261', '#e76f51', '#a8dadc', '#e5e5e5', '#e63946']
+let colors = ['#e63946', '#e9c46a', '#f4a261', '#e76f51', '#a8dadc', '#e5e5e5']
 let cardsColor = document.querySelectorAll('.sub-container')
 let oldColor = 0
 
-function randomColor() {
-    let newColor = Math.floor(Math.random() * colors.length)
-    while (newColor == oldColor) {
-        newColor = Math.floor(Math.random() * colors.length)
-    }
-    oldColor = newColor
-    return colors[newColor]
-}
+// function randomColor() {
+//     let newColor = Math.floor(Math.random() * colors.length)
+//     while (newColor == oldColor) {
+//         newColor = Math.floor(Math.random() * colors.length)
+//     }
+//     oldColor = newColor
+//     return colors[newColor]
+// }
 
 for (let i = 0; i < cardsColor.length; i++) {
-    let color = randomColor()
+    let color = colors[i]
     cardsColor[i].style.backgroundColor = color
     if (lightOrDark(color) == 'dark') {
         cardsColor[i].style.color = 'white'
