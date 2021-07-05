@@ -18,7 +18,11 @@ for (let i = 0; i < cardsColor.length; i++) {
         cardsColor[i].style.color = 'white'
     }
 }
-// for (let i = 0; i < cardsColor.length; i++) {
+
+document.querySelector('.mail').onclick = () => {
+        document.querySelector('.text-mail').innerText = 'federico.cosentino15@gmail.com'
+    }
+    // for (let i = 0; i < cardsColor.length; i++) {
 
 // var rgb = getAverageRGB(document.querySelector('.color-info'));
 // cardsColor[i].style.backgroundColor = 'rgb(' + (rgb.r) + ',' + (rgb.g) + ',' + (rgb.b) + ')';
