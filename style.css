@@ -1,7 +1,3 @@
-.main-container {
-    background-color: white;
-}
-
 div {
     border-radius: 9px;
     border-style: solid;
@@ -20,6 +16,7 @@ a {
 .title-container {
     display: block;
     background-color: teal;
+    margin-bottom: 60px;
     padding-top: 4px;
     padding-bottom: 4px;
     padding-right: 30px;
@@ -61,6 +58,7 @@ body {
     .main-container {
         border-width: 0;
         box-shadow: none;
+        margin-top: 10px;
     }
     body {
         background-color: #264653;
