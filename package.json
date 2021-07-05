@@ -1,6 +1,9 @@
 {
     "name": "site_net",
     "version": "1.0.0",
+    "engines": {
+        "node": "12.11.1"
+    },
     "description": "",
     "main": "color.js",
     "scripts": {
